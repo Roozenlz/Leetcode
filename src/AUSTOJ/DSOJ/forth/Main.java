@@ -9,41 +9,41 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayQueue queue = new ArrayQueue(10);
-        Scanner scanner = new Scanner(System.in);
+        try {
+            ArrayQueue queue = new ArrayQueue(10);
+            Scanner scanner = new Scanner(System.in);
+            int option;
+            while ((option = scanner.nextInt()) != -1) {
+                try {
+                    switch (option) {
+                        case 0:
+                            queue.printAll();
+                            break;
+                        case 1:
+                            queue.offer(scanner.nextInt());
+                            break;
+                        case 2:
+                            System.out.println(queue.poll());
+                            break;
+                        case 3:
+                            System.out.println(queue.getFirst());
+                            break;
+                        case 4:
+                            System.out.println(queue.size());
+                            break;
+                        case 5:
+                            System.out.println(queue.isEmpty() ? 1 : 0);
+                            break;
 
-        int option;
-        while ((option = scanner.nextInt()) != -1) {
-            try {
-                switch (option) {
-                    case 0:
-                        queue.printAll();
-                        break;
-                    case 1:
-                        queue.offer(scanner.nextInt());
-                        break;
-                    case 2:
-                        System.out.println(queue.poll());
-                        break;
-                    case 3:
-                        System.out.println(queue.getFirst());
-                        break;
-                    case 4:
-                        System.out.println(queue.size());
-                        break;
-                    case 5:
-                        System.out.println(queue.isEmpty() ? 1 : 0);
-                        break;
-
-                    case -1:
-                        return;
+                        case -1:
+                            return;
+                    }
+                } catch (RuntimeException e) {
+                    System.out.println(-1);
                 }
-            } catch (RuntimeException e) {
-                System.out.println(-1);
             }
-
+        } catch (Exception e) {
         }
-
     }
 
     static class ArrayQueue {
