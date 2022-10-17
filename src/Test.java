@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+import java.math.MathContext;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
@@ -9,11 +11,18 @@ public class Test {
     public static void main(String[] args) {
 //        double d = 14.7155;
 //        System.out.printf("%7.3f\n",d);
-        System.out.println(3.141593 * 25);
-        System.out.println(78.5398);
-        System.out.println(4.0 / 3 * 3.141593 * 125);
-        System.out.println(1.0 * 100 / 3);
-        System.out.println((int) Math.pow(4.0 / 3 * 3.141593 * (64 + 1000),1.0/3));
+//        System.out.println(3.141593 * 25);
+//        System.out.println(78.5398);
+//        System.out.println(4.0 / 3 * 3.141593 * 125);
+//        System.out.println(1.0 * 100 / 3);
+//        System.out.println((int) Math.pow(4.0 / 3 * 3.141593 * (64 + 1000),1.0/3));
+
+        BigDecimal aDigit = new BigDecimal("0.0012300000000000000000000000");
+        MathContext mc = new MathContext(10);//保留10位有效数字
+        System.out.println(aDigit.round(mc));//0.001230000000
+
+
+
 //        DecimalFormat df0 = new DecimalFormat("###");
 //        DecimalFormat df1 = new DecimalFormat("###.0");
 //        DecimalFormat df2 = new DecimalFormat("###.00");
