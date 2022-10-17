@@ -9,11 +9,13 @@ public class Test {
     public static void main(String[] args) {
 //        double d = 14.7155;
 //        System.out.printf("%7.3f\n",d);
-        System.out.println(3.141593 * 25);
-        System.out.println(78.5398);
-        System.out.println(4.0 / 3 * 3.141593 * 125);
-        System.out.println(1.0 * 100 / 3);
-        System.out.println((int) Math.pow(4.0 / 3 * 3.141593 * (64 + 1000),1.0/3));
+//        System.out.println(3.141593 * 25);
+//        System.out.println(78.5398);
+//        System.out.println(4.0 / 3 * 3.141593 * 125);
+//        System.out.println(1.0 * 100 / 3);
+//        System.out.println((int) Math.pow(4.0 / 3 * 3.141593 * (64 + 1000),1.0/3));
+        System.out.println("123".charAt(0));
+        System.out.println("123".length());
 //        DecimalFormat df0 = new DecimalFormat("###");
 //        DecimalFormat df1 = new DecimalFormat("###.0");
 //        DecimalFormat df2 = new DecimalFormat("###.00");
