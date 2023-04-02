@@ -8,27 +8,24 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        try {
-            Scanner scanner = new Scanner(System.in);
-            int opt, target;
-            BinaryTree tree = new BinaryTree();
-            while ((opt = scanner.nextInt()) != 0) {
-                switch (opt) {
-                    case 1:
-                        int n = scanner.nextInt();
-                        for (int i = 0; i < n; i++) {
-                            tree.add(scanner.nextInt());
-                        }
-                        break;
-                    case 2:
-                        tree.inOrderPrint();
-                        break;
-                    case 3:
-                        System.out.println(tree.find(scanner.nextInt()) ? 1 : 0);
-                        break;
-                }
+        Scanner scanner = new Scanner(System.in);
+        int opt, target;
+        BinaryTree tree = new BinaryTree();
+        while ((opt = scanner.nextInt()) != 0) {
+            switch (opt) {
+                case 1:
+                    int n = scanner.nextInt();
+                    for (int i = 0; i < n; i++) {
+                        tree.add(scanner.nextInt());
+                    }
+                    break;
+                case 2:
+                    tree.inOrderPrint();
+                    break;
+                case 3:
+                    System.out.println(tree.find(scanner.nextInt()) ? 1 : 0);
+                    break;
             }
-        } catch (Exception e) {
         }
     }
 

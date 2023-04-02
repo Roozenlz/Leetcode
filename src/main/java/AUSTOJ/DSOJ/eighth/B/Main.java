@@ -9,39 +9,37 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        try {
-            Scanner scanner = new Scanner(System.in);
-            int option;
-            Student[] arr = null;
-            while ((option = scanner.nextInt()) != 0) {
-                switch (option) {
-                    case 1:
-                        int n = scanner.nextInt();
-                        arr = new Student[n];
-                        for (int i = 0; i < n; i++) {
-                            arr[i] = new Student(scanner.nextInt(), scanner.nextInt(), scanner.next());
-                        }
-                        break;
-                    case 4:
-                        if (scanner.nextInt() == 1) {
-                            bubbleSort(arr, Student::compareTo);
-                        } else {
-                            bubbleSort(arr, Comparator.reverseOrder());
-                        }
-                        printArr(arr);
-                        break;
-                    case 5:
-                        if (scanner.nextInt() == 1) {
-                            quickSort(arr, Student::compareTo);
-                        } else {
-                            quickSort(arr, Comparator.reverseOrder());
-                        }
-                        printArr(arr);
-                        break;
-                }
+        Scanner scanner = new Scanner(System.in);
+        int option;
+        Student[] arr = null;
+        while ((option = scanner.nextInt()) != 0) {
+            switch (option) {
+                case 1:
+                    int n = scanner.nextInt();
+                    arr = new Student[n];
+                    for (int i = 0; i < n; i++) {
+                        arr[i] = new Student(scanner.nextInt(), scanner.nextInt(), scanner.next());
+                    }
+                    break;
+                case 4:
+                    if (scanner.nextInt() == 1) {
+                        bubbleSort(arr, Student::compareTo);
+                    } else {
+                        bubbleSort(arr, Comparator.reverseOrder());
+                    }
+                    printArr(arr);
+                    break;
+                case 5:
+                    if (scanner.nextInt() == 1) {
+                        quickSort(arr, Student::compareTo);
+                    } else {
+                        quickSort(arr, Comparator.reverseOrder());
+                    }
+                    printArr(arr);
+                    break;
             }
-        } catch (Exception e) {
         }
+
     }
 
     private static void printArr(Student[] arr) {

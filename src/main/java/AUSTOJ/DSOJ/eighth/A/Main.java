@@ -9,35 +9,32 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        try {
-            Scanner scanner = new Scanner(System.in);
-            int option;
-            int[] arr = null;
-            while ((option = scanner.nextInt()) != 0) {
-                switch (option) {
-                    case 1:
-                        int n = scanner.nextInt();
-                        arr = new int[n];
-                        for (int i = 0; i < n; i++) {
-                            arr[i] = scanner.nextInt();
-                        }
-                        break;
-                    case 2:
-                        int t = scanner.nextInt();
-                        if (t == 1) {
-                            insertSort(arr, Integer::compare);
-                        } else if (t == -1) {
-                            insertSort(arr, Comparator.reverseOrder());
-                        }
-                        printArr(arr);
-                        break;
-                    case 3:
-                        bInsertSort(arr);
-                        printArr(arr);
-                        break;
-                }
+        Scanner scanner = new Scanner(System.in);
+        int option;
+        int[] arr = null;
+        while ((option = scanner.nextInt()) != 0) {
+            switch (option) {
+                case 1:
+                    int n = scanner.nextInt();
+                    arr = new int[n];
+                    for (int i = 0; i < n; i++) {
+                        arr[i] = scanner.nextInt();
+                    }
+                    break;
+                case 2:
+                    int t = scanner.nextInt();
+                    if (t == 1) {
+                        insertSort(arr, Integer::compare);
+                    } else if (t == -1) {
+                        insertSort(arr, Comparator.reverseOrder());
+                    }
+                    printArr(arr);
+                    break;
+                case 3:
+                    bInsertSort(arr);
+                    printArr(arr);
+                    break;
             }
-        } catch (Exception e) {
         }
     }
 

@@ -33,4 +33,30 @@ public class Solution {
         }
         return dp[m - 1][n - 1];
     }
+
+    //空间优化
+    public int uniquePathsWithObstacles2(int[][] obstacleGrid) {
+        int[] dp = new int[obstacleGrid[0].length];
+        for (int i = 0; i < obstacleGrid[0].length; i++) {
+            if (obstacleGrid[0][i] == 1) {
+                break;
+            } else if (i == 0) {
+                dp[i] = 1;
+            } else {
+                dp[i] = dp[i - 1];
+            }
+        }
+        for (int i = 1; i < obstacleGrid.length; i++) {
+            for (int j = 0; j < obstacleGrid[0].length; j++) {
+                if (obstacleGrid[i][j] == 1) {
+                    dp[j] = 0;
+                } else if (j == 0) {
+                    continue;
+                } else {
+                    dp[j] += dp[j - 1];
+                }
+            }
+        }
+        return dp[obstacleGrid[0].length - 1];
+    }
 }

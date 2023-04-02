@@ -1,4 +1,4 @@
-package luogu.P5000plus.P1554;
+package luogu.P5000sub.P1554;
 
 import java.util.Scanner;
 
