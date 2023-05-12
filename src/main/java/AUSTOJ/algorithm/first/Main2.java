@@ -10,7 +10,7 @@ public class Main2 {
     public static void main(String[] args) {
         int[] arr = {3, 2, 5, 6, 3, 7, 3, 9, 10};
         insertSort(arr);
-        Arrays.toString(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     public static void insertSort(int[] arr) {

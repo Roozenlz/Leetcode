@@ -53,4 +53,16 @@ public class Solution {
         }
     }
 
+    public String reverseStr3(String s, int k) {
+        char[] chars = s.toCharArray();
+        for (int i = 0; i < chars.length; i += 2 * k) {
+            if (i + k < chars.length) {
+                reverse(chars, i, i + k - 1);
+                continue;
+            }
+            reverse(chars, i, chars.length - 1);
+        }
+        return new String(chars);
+    }
+
 }

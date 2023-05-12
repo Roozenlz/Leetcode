@@ -46,6 +46,22 @@ public class Solution {
         //返回真正的头结点
         return tmpHead.next;
     }
+
+    public ListNode removeElements3(ListNode head, int val) {
+        if (head == null) {
+            return null;
+        }
+        ListNode tmpHead = new ListNode(0, head), pre = tmpHead, cur = head;
+        while (cur != null) {
+            if (cur.val == val) {
+                pre.next = cur.next;
+            } else {
+                pre = cur;
+            }
+            cur = cur.next;
+        }
+        return tmpHead.next;
+    }
 }
 
 class ListNode {

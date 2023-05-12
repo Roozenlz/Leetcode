@@ -8,6 +8,22 @@ package leetcode.ques206;
  */
 
 public class Solution {
+
+    public ListNode reverseList3(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode pre = null, tmp;
+        while (head != null) {
+            tmp = head.next;
+            head.next = pre;
+            pre = head;
+            head = tmp;
+        }
+        return pre;
+    }
+
+
     //代码随想录 双指针解法
     public ListNode reverseList(ListNode head) {
         if (head == null) return null;

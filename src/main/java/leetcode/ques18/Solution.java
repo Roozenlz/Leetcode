@@ -50,4 +50,46 @@ public class Solution {
         }
         return res;
     }
+
+    public List<List<Integer>> fourSum2(int[] nums, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            //剪枝
+            if (nums[i] > target && nums[i] >= 0) {
+                break;
+            }
+            //去重
+            if (i > 0 && nums[i] == nums[i - 1]) {
+                continue;
+            }
+            for (int j = i + 1; j < nums.length; j++) {
+                int sum1 = nums[i] + nums[j];
+                //剪枝
+                if (sum1 > target && sum1 >= 0) {
+                    break;
+                }
+                //去重
+                if (j > i + 1 && nums[j] == nums[j - 1]) {
+                    continue;
+                }
+                int left = j + 1, right = nums.length - 1;
+                while (left < right) {
+                    int sum2 = sum1 + nums[left] + nums[right];
+                    if (sum2 > target) {
+                        right--;
+                    } else if (sum2 < target) {
+                        left++;
+                    } else {
+                        res.add(Arrays.asList(nums[i], nums[j], nums[left], nums[right]));
+                        while (left < right && nums[left] == nums[left + 1]) left++;
+                        while (left < right && nums[right] == nums[right - 1]) right--;
+                        left++;
+                        right--;
+                    }
+                }
+            }
+        }
+        return res;
+    }
 }

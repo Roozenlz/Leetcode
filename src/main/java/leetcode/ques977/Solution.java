@@ -7,17 +7,31 @@ package leetcode.ques977;
  * @version 1.0
  */
 public class Solution {
+    //    public int[] sortedSquares(int[] nums) {
+//        for (int i = 0; i < nums.length; i++) {
+//            nums[i] *= nums[i];
+//        }
+//        int l = 0, r = nums.length - 1;
+//        int[] re = new int[nums.length];
+//        for (int i = re.length - 1; i >= 0; i--) {
+//            if (nums[l] < nums[r]) {
+//                re[i] = nums[r--];
+//            } else {
+//                re[i] = nums[l++];
+//            }
+//        }
+//        return re;
+//    }
     public int[] sortedSquares(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] *= nums[i];
-        }
-        int l = 0, r = nums.length - 1;
         int[] re = new int[nums.length];
-        for (int i = re.length - 1; i >= 0; i--) {
-            if (nums[l] < nums[r]) {
-                re[i] = nums[r--];
+        int left = 0, right = nums.length - 1;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (Math.abs(nums[left]) < Math.abs(nums[right])) {
+                re[i] = nums[right] * nums[right];
+                right--;
             } else {
-                re[i] = nums[l++];
+                re[i] = nums[left] * nums[left];
+                left++;
             }
         }
         return re;

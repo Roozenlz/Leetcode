@@ -7,7 +7,7 @@ package offer.offer5;
  * @version 1.0
  */
 public class Solution {
-    public String replaceSpace(String s) {
+    public String replaceSpace2(String s) {
         StringBuilder sb = new StringBuilder();
         for (char c : s.toCharArray()) {
             if (c == ' ') {
@@ -17,5 +17,17 @@ public class Solution {
             }
         }
         return sb.toString();
+    }
+
+    public String replaceSpace(String s) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (c == ' ') {
+                stringBuilder.append("%20");
+            } else {
+                stringBuilder.append(c);
+            }
+        }
+        return stringBuilder.toString();
     }
 }
