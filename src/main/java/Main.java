@@ -1,9 +1,19 @@
+import java.util.Random;
+
 public class Main {
+    //    public static void main(String[] args) {
+//        byte i = 0;
+//        while (i >= 0) {
+//            i++;
+//            System.out.println(i);
+//        }
+//    }
     public static void main(String[] args) {
-        byte i = 0;
-        while (i >= 0) {
-            i++;
-            System.out.println(i);
+        Random random = new Random();
+        for (int i = 1; i < 102; i++) {
+            int i1 = random.nextInt(1, 102);
+            int i2 = random.nextInt(1, 102);
+            System.out.println(i1 + " " + i2);
         }
     }
 }

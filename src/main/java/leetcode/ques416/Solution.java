@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @version 1.0
  */
 public class Solution {
-    public boolean canPartition(int[] nums) {
+    public boolean canPartition2(int[] nums) {
         if (nums == null || nums.length == 0) {
             return false;
         }
@@ -25,5 +25,18 @@ public class Solution {
             }
         }
         return dp[target] == target;
+    }
+
+    public boolean canPartition(int[] nums) {
+        int sum = Arrays.stream(nums).reduce(0, Integer::sum);
+        if ((sum & 1) == 1) return false;
+        int bagSize = sum / 2;
+        int[] dp = new int[bagSize + 1];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = bagSize; j >= nums[i]; j--) {
+                dp[j] = Math.max(dp[j], dp[j - nums[i]] + nums[i]);
+            }
+        }
+        return dp[bagSize] == bagSize;
     }
 }
