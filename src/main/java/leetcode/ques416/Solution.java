@@ -39,4 +39,17 @@ public class Solution {
         }
         return dp[bagSize] == bagSize;
     }
+
+    public boolean canPartition3(int[] nums) {
+        int sum = Arrays.stream(nums).reduce(0, Integer::sum);
+        if ((sum & 1) == 1) return false;
+        int bagSize = sum / 2;
+        int[] dp = new int[bagSize + 1];
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = bagSize; j >= nums[i]; j--) {
+                dp[j] = Math.max(dp[j], dp[j - nums[i]] + nums[i]);
+            }
+        }
+        return dp[bagSize] == bagSize;
+    }
 }
