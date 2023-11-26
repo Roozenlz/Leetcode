@@ -1,4 +1,4 @@
-package ques559;
+package leetcode.ques559;
 
 import java.util.LinkedList;
 import java.util.List;
