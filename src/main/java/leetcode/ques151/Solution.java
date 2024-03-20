@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class Solution {
     public static void main(String[] args) {
-        System.out.println(new Solution().reverseWords("  a good   example  "));
+        System.out.println(new Solution().reverseWords2("  a good   example  "));
 
     }
 
@@ -21,7 +21,7 @@ public class Solution {
 
     public String reverseWords2(String s) {
         String[] strings = s.trim().split(" ");
-        System.out.println(Arrays.toString(strings));
+//        System.out.println(Arrays.toString(strings));
         StringBuilder sb = new StringBuilder();
         for (int i = strings.length - 1; i >= 0; i--) {
             String trim = strings[i].trim();

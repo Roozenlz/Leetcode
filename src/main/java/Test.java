@@ -33,9 +33,11 @@ public class Test {
 //        String pattern = "^\\s*\\{";
 //        System.out.println(Pattern.compile(pattern).matcher("{").find());
 
-        System.out.println(Base64.getEncoder().encodeToString(new byte[]{97}));
-
-
+//        System.out.println(Base64.getEncoder().encodeToString(new byte[]{97}));
+        int[] a = {1,2,3};
+        for(int i:a){
+            System.out.println(i);
+        }
 //        DecimalFormat df0 = new DecimalFormat("###");
 //        DecimalFormat df1 = new DecimalFormat("###.0");
 //        DecimalFormat df2 = new DecimalFormat("###.00");

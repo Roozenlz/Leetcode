@@ -107,7 +107,7 @@ class MyLinkedList {
             return null;
         }
         //运用双向链表的优势，先判断下标位置，距离头结点近还是距离尾结点近
-        if (index >= size / 2) {
+        if (index > (size >>> 1)) {
             int tmp = size - 1;
             Node tmpNode = tail;
             while (tmp-- != index) {

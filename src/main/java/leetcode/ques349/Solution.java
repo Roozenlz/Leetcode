@@ -1,6 +1,9 @@
 package leetcode.ques349;
 
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * 349. 两个数组的交集
@@ -57,5 +60,11 @@ public class Solution {
             }
         }
         return res.stream().mapToInt(x -> x).toArray();
+    }
+
+
+    public int[] intersection4(int[] nums1, int[] nums2) {
+        Set<Integer> set = Arrays.stream(nums1).boxed().collect(Collectors.toSet());
+        return Arrays.stream(nums2).boxed().distinct().filter(set::contains).mapToInt(Integer::intValue).toArray();
     }
 }

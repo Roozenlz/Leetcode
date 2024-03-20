@@ -10,21 +10,37 @@ import java.util.HashMap;
  */
 public class Solution {
     //可以处理任意unicode字符
+//    public boolean isAnagram(String s, String t) {
+//        HashMap<Character, Integer> hashMap1 = new HashMap<>();
+//        HashMap<Character, Integer> hashMap2 = new HashMap<>();
+//        for (char c : s.toCharArray()) {
+//            hashMap1.put(c, hashMap1.getOrDefault(c, 0) + 1);
+//        }
+//        for (char c : t.toCharArray()) {
+//            hashMap2.put(c, hashMap2.getOrDefault(c, 0) + 1);
+//        }
+//        if (hashMap1.size() != hashMap2.size()) {
+//            return false;
+//        }
+//        for (Character character : hashMap1.keySet()) {
+//            //Integer（>127）不能用==判断！！！
+//            if (hashMap1.get(character).equals(hashMap2.get(character))) {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
     public boolean isAnagram(String s, String t) {
-        HashMap<Character, Integer> hashMap1 = new HashMap<>();
-        HashMap<Character, Integer> hashMap2 = new HashMap<>();
+        if (s.length() != t.length()) return false;
+        int[] hash = new int[26];
         for (char c : s.toCharArray()) {
-            hashMap1.put(c, hashMap1.getOrDefault(c, 0) + 1);
+            hash[c - 'a']++;
         }
         for (char c : t.toCharArray()) {
-            hashMap2.put(c, hashMap2.getOrDefault(c, 0) + 1);
+            hash[c - 'a']--;
         }
-        if (hashMap1.size() != hashMap2.size()) {
-            return false;
-        }
-        for (Character character : hashMap1.keySet()) {
-            //Integer（>127）不能用==判断！！！
-            if (hashMap1.get(character).equals(hashMap2.get(character))) {
+        for (int i : hash) {
+            if (i != 0) {
                 return false;
             }
         }

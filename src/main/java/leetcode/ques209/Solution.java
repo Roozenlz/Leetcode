@@ -35,4 +35,21 @@ public class Solution {
         }
         return minLen == Integer.MAX_VALUE ? 0 : minLen;
     }
+
+
+    public int minSubArrayLen2(int target, int[] nums) {
+        int slow = 0, fast = 0;
+        int minLen = Integer.MAX_VALUE;
+        int sum = 0;
+        while (fast < nums.length) {
+            while (sum < target && fast < nums.length) {
+                sum += nums[fast++];
+            }
+            while (sum >= target && slow <= fast) {
+                minLen = Math.min(fast - slow, minLen);
+                sum -= nums[slow++];
+            }
+        }
+        return minLen == Integer.MAX_VALUE ? 0 : minLen;
+    }
 }

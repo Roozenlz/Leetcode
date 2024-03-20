@@ -1,5 +1,7 @@
 package leetcode.ques203;
 
+import java.util.List;
+
 /**
  * 203. 移除链表元素
  *
@@ -61,6 +63,23 @@ public class Solution {
             cur = cur.next;
         }
         return tmpHead.next;
+    }
+
+    public ListNode removeElements4(ListNode head, int val) {
+        if (head == null) {
+            return null;
+        }
+        ListNode dummy = new ListNode(0, head);
+        ListNode pre = dummy, cur = head;
+        while (cur != null) {
+            if (cur.val == val) {
+                pre.next = cur.next;
+            }else{
+                pre = cur;
+            }
+            cur = cur.next;
+        }
+        return dummy.next;
     }
 }
 

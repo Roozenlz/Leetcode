@@ -10,7 +10,7 @@ import java.util.Arrays;
  */
 public class Solution {
     public static void main(String[] args) {
-        int n = 6;
+        int n = 1;
         int[][] ints = new Solution().generateMatrix(n);
         for (int i = 0; i < n; i++) {
             System.out.println(Arrays.toString(ints[i]));
@@ -54,26 +54,50 @@ public class Solution {
 //        }
 //        return re;
 //    }
+//    public int[][] generateMatrix(int n) {
+//        int offset = 0, count = 0;
+//        int[][] ret = new int[n][n];
+//        for (int i = 0; i < n / 2; i++) {
+//            for (int j = offset; j < n - offset - 1; j++) {
+//                ret[offset][j] = ++count;
+//            }
+//            for (int j = offset; j < n - offset - 1; j++) {
+//                ret[j][n - offset - 1] = ++count;
+//            }
+//            for (int j = n - offset - 1; j > offset; j--) {
+//                ret[n - offset - 1][j] = ++count;
+//            }
+//            for (int j = n - offset - 1; j > offset; j--) {
+//                ret[j][offset] = ++count;
+//            }
+//            offset++;
+//        }
+//        if ((n & 1) == 1) {
+//            ret[offset][offset] = ++count;
+//        }
+//        return ret;
+//    }
     public int[][] generateMatrix(int n) {
-        int offset = 0, count = 0;
+        int offset = 0;
         int[][] ret = new int[n][n];
-        for (int i = 0; i < n / 2; i++) {
-            for (int j = offset; j < n - offset - 1; j++) {
-                ret[offset][j] = ++count;
+        int count = 1;
+        while (offset < n / 2) {
+            for (int i = offset; i < n - offset - 1; i++) {
+                ret[offset][i] = count++;
             }
-            for (int j = offset; j < n - offset - 1; j++) {
-                ret[j][n - offset - 1] = ++count;
+            for (int i = offset; i < n - offset - 1; i++) {
+                ret[i][n - offset - 1] = count++;
             }
-            for (int j = n - offset - 1; j > offset; j--) {
-                ret[n - offset - 1][j] = ++count;
+            for (int i = n - offset - 1; i > offset; i--) {
+                ret[n - offset - 1][i] = count++;
             }
-            for (int j = n - offset - 1; j > offset; j--) {
-                ret[j][offset] = ++count;
+            for (int i = n - offset - 1; i > offset; i--) {
+                ret[i][offset] = count++;
             }
             offset++;
         }
-        if ((n & 1) == 1) {
-            ret[offset][offset] = ++count;
+        if((n & 1) == 1){
+            ret[offset][offset] = count;
         }
         return ret;
     }

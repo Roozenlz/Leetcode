@@ -18,13 +18,25 @@ public class Solution {
 //        return slow;
 //    }
 
+//    public int removeElement(int[] nums, int val) {
+//        int fast = 0, slow = 0;
+//        while (fast < nums.length) {
+//            if (nums[fast] != val) {
+//                nums[slow++] = nums[fast];
+//            }
+//            fast++;
+//        }
+//        return slow;
+//    }
+
     public int removeElement(int[] nums, int val) {
-        int fast = 0, slow = 0;
+        int slow = 0, fast = 0;
         while (fast < nums.length) {
-            if (nums[fast] != val) {
-                nums[slow++] = nums[fast];
+            if (nums[fast] == val) {
+                fast++;
+                continue;
             }
-            fast++;
+            nums[slow++] = nums[fast++];
         }
         return slow;
     }
