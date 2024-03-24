@@ -1,2 +1,6 @@
-./target
-./.idea
+/target
+/.idea
+*.class
+*.iml
+*.log
+*.jar
