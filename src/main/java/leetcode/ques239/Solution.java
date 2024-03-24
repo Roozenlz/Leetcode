@@ -1,8 +1,6 @@
 package leetcode.ques239;
 
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.*;
 
 /**
  * @author Roozen
@@ -76,8 +74,28 @@ public class Solution {
         return res;
     }
 
+//    public int[] maxSlidingWindow(int[] nums, int k) {
+//        Deque<Integer> queue = new LinkedList<>();
+//        int[] res = new int[nums.length - k + 1];
+//        int index = 0;
+//        for (int i = 0; i < nums.length; i++) {
+//            while (!queue.isEmpty() && queue.peekFirst() < i - k + 1) {
+//                queue.pollFirst();
+//            }
+//            while (!queue.isEmpty() && nums[queue.peekLast()] < nums[i]) {
+//                queue.pollLast();
+//            }
+//            queue.offerLast(i);
+//            if (i >= k - 1) {
+//                res[index++] = nums[queue.peekFirst()];
+//            }
+//        }
+//        return res;
+//    }
+
+
     public int[] maxSlidingWindow(int[] nums, int k) {
-        Deque<Integer> queue = new LinkedList<>();
+        Deque<Integer> queue = new ArrayDeque<>();
         int[] res = new int[nums.length - k + 1];
         int index = 0;
         for (int i = 0; i < nums.length; i++) {

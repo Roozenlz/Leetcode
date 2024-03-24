@@ -12,7 +12,7 @@ import java.util.LinkedList;
 public class Solution {
     public int result = Integer.MAX_VALUE;
 
-    public int minDepth2(TreeNode root) {
+    public int minDepth(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -49,7 +49,7 @@ public class Solution {
         }
     }
 
-    public int minDepth(TreeNode root) {
+    public int minDepth2(TreeNode root) {
         if (root == null) {
             return 0;
         }

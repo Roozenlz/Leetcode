@@ -39,4 +39,36 @@ public class Solution {
         }
         return stack.poll();
     }
+
+    public int evalRPN2(String[] tokens) {
+        ArrayDeque<Integer> integers = new ArrayDeque<>();
+        for (String s : tokens) {
+            switch (s) {
+                case "+" -> {
+                    Integer b = integers.pop();
+                    Integer a = integers.pop();
+                    integers.push(a + b);
+                }
+                case "-" -> {
+                    Integer b = integers.pop();
+                    Integer a = integers.pop();
+                    integers.push(a - b);
+                }
+                case "*" -> {
+                    Integer b = integers.pop();
+                    Integer a = integers.pop();
+                    integers.push(a * b);
+                }
+                case "/" -> {
+                    Integer b = integers.pop();
+                    Integer a = integers.pop();
+                    integers.push(a / b);
+                }
+                default -> {
+                    integers.push(Integer.parseInt(s));
+                }
+            }
+        }
+        return integers.pop();
+    }
 }

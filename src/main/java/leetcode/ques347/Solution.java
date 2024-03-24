@@ -7,6 +7,34 @@ import java.util.*;
  * @version 1.0
  */
 public class Solution {
+
+    public int[] topKFrequent4(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i : nums) {
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+        PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>((e1, e2) -> e2.getValue() - e1.getValue());
+        queue.addAll(map.entrySet());
+        int[] res = new int[k];
+        for (int i = 0; i < k; i++) {
+            res[i] = queue.poll().getKey();
+        }
+        return res;
+    }
+
+    public int[] topKFrequent3(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i : nums) {
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+        return map.entrySet()
+                .stream()
+                .sorted((e1, e2) -> e2.getValue() - e1.getValue())
+                .limit(k)
+                .mapToInt(Map.Entry::getKey)
+                .toArray();
+    }
+
     public int[] topKFrequent2(int[] nums, int k) {
         HashMap<Integer, Integer> map = new HashMap<>();
         for (int i : nums) {
