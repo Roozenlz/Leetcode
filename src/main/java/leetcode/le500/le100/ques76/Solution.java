@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class Solution {
     public static void main(String[] args) {
-        leetcode.ques76.Solution solution = new leetcode.ques76.Solution();
+        Solution solution = new Solution();
         System.out.println(solution.minWindow("a", "b"));
     }
 
