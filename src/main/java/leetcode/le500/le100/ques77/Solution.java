@@ -1,4 +1,4 @@
-package leetcode.ques77;
+package leetcode.le500.le100.ques77;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +53,32 @@ public class Solution {
             return;
         }
         for (int i = startIndex; i <= n - (k - path.size()) + 1; i++) {
+            path.add(i);
+            backtracking(i + 1);
+            path.remove(path.size() - 1);
+        }
+    }
+}
+
+class Solution2 {
+
+    List<List<Integer>> result = new ArrayList<>();
+    List<Integer> path = new ArrayList<>();
+    int n, k;
+
+    public List<List<Integer>> combine(int n, int k) {
+        this.n = n;
+        this.k = k;
+        backtracking(1);
+        return result;
+    }
+
+    private void backtracking(int startIndex) {
+        if (path.size() == k) {
+            result.add(new ArrayList<>(path));
+            return;
+        }
+        for (int i = startIndex; i <= n - k + path.size() + 1; i++) {
             path.add(i);
             backtracking(i + 1);
             path.remove(path.size() - 1);
